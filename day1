@@ -1,0 +1,36 @@
+-- create a table1
+create table patient(p_ID,p_Name varchar(20),p_Gender varchar(20),p_address varchar(20),p_phone varchar(20));
+-- insert some values
+insert into patient values(1,'Arya','Male','Coimbatore','9876543210');
+insert into patient values(2,'Diya','Female','Chennai','1234567890');
+alter table patient add column age int;
+alter table patient add column doctorfee int;
+update patient set doctorfee=150 where p_ID = 1;
+update patient set doctorfee=170 where p_ID = 2;
+update patient set age = 40 where p_ID = 1;
+update patient set age = 20 where p_ID = 2;
+-- delete from patient where p_ID=1; 
+-- alter table patient drop p_Gender;
+select * from patient order by p_Name desc;
+select count(p_Name) from patient;
+select avg(doctorfee) from patient;
+select sum(doctorfee) from patient;
+-- fetch some values
+-- select * from patient;
+
+-- create a table2
+create table doctor(d_ID,d_Name varchar(20),d_Gender varchar(20),d_address varchar(20),d_phone varchar(20));
+-- insert some values
+insert into doctor values(1,'Ram','Male','Coimbatore','9876543210');
+insert into doctor values(2,'Rohini','Female','Chennai','1234567890');
+alter table doctor add column age int;
+update doctor set age = 30 where d_ID = 1;
+update doctor set age = 50 where d_ID = 2;
+SELECT * FROM doctor ORDER BY d_Gender asc;
+select count(d_address) from doctor;
+-- fetch some values
+-- select * from doctor;
+select patient.p_ID,patient.p_Name,doctor.d_Name from patient inner join doctor on patient.p_ID=doctor.d_ID;
+select patient.p_Name,doctor.d_Name from patient left join doctor on patient.p_ID=doctor.d_ID;
+select patient.p_Name,doctor.d_Name from patient right join doctor on patient.p_ID=doctor.d_ID;
+select patient.p_Name,doctor.d_Name from patient full outer join doctor on patient.p_ID=doctor.d_ID;
