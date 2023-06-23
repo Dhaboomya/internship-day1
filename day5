@@ -1,0 +1,59 @@
+/*export*/ const user_data = 
+[
+{
+    id : 1,
+    name : 'ram',
+    age : 20,
+    email :'do@do.com'
+}
+];
+console.log(user_data);
+ const newUser =
+{
+    //add new user
+    id : 2,
+    name : 'seetha',
+    age : 18,
+    email : 'se@se.com'
+};
+export const addUser =(newUser)=>{
+    user_data.push(newUser);
+};
+addUser(newUser);
+//console.log(user_data);
+
+export const editUser =(id,key,value)=>{
+    //edit
+    const user_index = user_data.findIndex((user)=> user.id === id)
+    if( user_index != -1){
+        user_data[user_index][key]=value;
+    }
+}
+//console.log(editUser);
+editUser(2,'name','dhabu');
+console.log(user_data);
+export const editMultipleParamInUser =(id=2,updateValue ={
+    name : 'akal',
+    age : 60,
+}) =>
+{
+    const user_index=user_data.findIndex((user)=> user.id === id)
+    if (user_index != -1){
+        user_data[user_index]={
+            ...user_data[user_index],
+            ...updateValue
+    }   
+ }
+}
+editMultipleParamInUser();
+console.log(user_data);
+export const deleteUser=(id)=>{
+    const user_index=user_data.findIndex((user)=> user.id === id)
+    if (user_index != -1){
+        user_data.splice(user_index,1);
+    }
+}
+deleteUser(1);
+console.log(user_data);
+
+export default user_data;
