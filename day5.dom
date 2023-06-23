@@ -1,0 +1,51 @@
+//DOM
+
+/*document.body.innerHTML = '<div>hello</div>';
+document.body.style.backgroundColor = 'lightpink';
+document.body.style.color = "darkblue";
+console.log(document.body.childNodes);*/
+//document.body.innerText = 'hello'
+console.log(document.body.children);
+const allChild = document.body.children;
+//allChild[1].style.color = 'green'; 
+/*setTimeout(() => {
+    allChild[0].style.color = 'red';
+    allChild[0].innerText = 'RED';
+},3000);
+setTimeout(() => {
+    allChild[1].style.color = 'orange';
+    allChild[1].innerText = 'ORANGE';
+},6000);
+setTimeout(() =>{ 
+    allChild[2].style.color = 'green';
+    allChild[2].innerText = 'GREEN';
+}, 9000);*/
+//document.body.innerText = 'hi all !!';
+/*let refresh_value=true;
+setInterval(()=>{
+    allChild[0].style.color = (refresh_value ? "green": "orange");
+    refresh_value = ! refresh_value;
+},2000);*/
+
+/*const tag = document.getElementsByClassName('cse');
+tag[0].innerText = 'dhabu';
+console.log(tag);
+
+const id = document.getElementById('unique');
+id.innerText = 'surya';
+console.log(id);*/
+
+const button = document.getElementById('Login_button');
+const username= document.getElementById('user');
+const password= document.getElementById('pass');
+const form= document.getElementById('login');
+
+button.addEventListener('click',(event)=>{
+    console.log(event);
+})
+
+form.addEventListener('submit',(event)=>{
+    event.preventDefault();
+    console.log('submit',username.value,password.value);
+})
+
